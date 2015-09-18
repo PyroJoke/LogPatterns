@@ -1,7 +1,4 @@
 FROM elasticsearch
 
-RUN \
-	cd /usr/share/elasticsearch \
-	bin/plugin -i mobz/elasticsearch-head \
-	bin/plugin -i elasticsearch/marvel/latest \
-	service elasticsearch restart
+RUN /usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head
+RUN /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest

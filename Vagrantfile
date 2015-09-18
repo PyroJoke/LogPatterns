@@ -82,19 +82,9 @@ Vagrant.configure(2) do |config|
     #d.pull_images "redis"
     #d.pull_images "busybox"
     
-    #d.build_image "/vagrant/elasticsearch", args: "-t elasticsearch-marvel-head"
+    d.build_image "/vagrant/elasticsearch", args: "-t es"
     
-    d.run "elasticsearch", args: "-d -P --name es -p 9200:9200 -p 9300:9300 -v /vagrant/elasticsearch/plugins:/usr/share/elasticsearch/plugins"
+    d.run "es", args: "-d -P --name es -p 9200:9200 -p 9300:9300"
   end
-  
-  config.vm.provision "shell", inline: <<-SHELL
-    if [ ! -d "/vagrant/elasticsearch/plugins/head" ]; then
-      docker exec es /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head;
-    fi
-    
-    if [ ! -d "/vagrant/elasticsearch/plugins/marvel" ]; then
-      docker exec es /usr/share/elasticsearch/bin/plugin -install elasticsearch/marvel/latest;
-    fi
-  SHELL
 
 end
