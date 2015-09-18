@@ -27,6 +27,9 @@ Vagrant.configure(2) do |config|
   # Elastic Search Ports
   config.vm.network "forwarded_port", guest: 9200, host: 9200
   config.vm.network "forwarded_port", guest: 9300, host: 9300
+  
+  # Kibana
+  config.vm.network "forwarded_port", guest: 5601, host: 5601
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -74,10 +77,11 @@ Vagrant.configure(2) do |config|
   # SHELL
   
   config.vm.provision "docker" do |d|
-    #d.pull_images "ubuntu"
     #d.pull_images "elasticsearch"
-    #d.pull_images "mongo"
     #d.pull_images "kibana"
+    
+    #d.pull_images "ubuntu"
+    #d.pull_images "mongo"
     #d.pull_images "mono"
     #d.pull_images "redis"
     #d.pull_images "busybox"
@@ -85,6 +89,7 @@ Vagrant.configure(2) do |config|
     d.build_image "/vagrant/elasticsearch", args: "-t es"
     
     d.run "es", args: "-d -P --name es -p 9200:9200 -p 9300:9300"
+    d.run "kibana", args: "-d --name kibana --link es:elasticsearch -p 5601:5601"
   end
 
 end
