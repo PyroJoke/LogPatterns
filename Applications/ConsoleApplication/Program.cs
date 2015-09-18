@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Serilog;
 
 namespace ConsoleApplication
 {
@@ -10,6 +6,14 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
+            var logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.ColoredConsole()
+                .CreateLogger();
+
+            logger.Information("Here is an informational message");
+            logger.Debug("Some debug level info");
+            logger.Error("And error level info");
         }
     }
 }
