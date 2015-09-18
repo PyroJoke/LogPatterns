@@ -23,6 +23,10 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
+  
+  # Elastic Search Ports
+  config.vm.network "forwarded_port", guest: 9200, host: 9200
+  config.vm.network "forwarded_port", guest: 9300, host: 9300
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -43,13 +47,13 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+  
+    # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -70,13 +74,27 @@ Vagrant.configure(2) do |config|
   # SHELL
   
   config.vm.provision "docker" do |d|
-    d.pull_images "ubuntu"
-    d.pull_images "elasticsearch"
-    d.pull_images "mongo"
-    d.pull_images "kibana"
-    d.pull_images "mono"
-    d.pull_images "redis"
-    d.pull_images "busybox"
+    #d.pull_images "ubuntu"
+    #d.pull_images "elasticsearch"
+    #d.pull_images "mongo"
+    #d.pull_images "kibana"
+    #d.pull_images "mono"
+    #d.pull_images "redis"
+    #d.pull_images "busybox"
+    
+    #d.build_image "/vagrant/elasticsearch", args: "-t elasticsearch-marvel-head"
+    
+    d.run "elasticsearch", args: "-d -P --name es -p 9200:9200 -p 9300:9300 -v /vagrant/elasticsearch/plugins:/usr/share/elasticsearch/plugins"
   end
+  
+  config.vm.provision "shell", inline: <<-SHELL
+    if [ ! -d "/vagrant/elasticsearch/plugins/head" ]; then
+      docker exec es /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head;
+    fi
+    
+    if [ ! -d "/vagrant/elasticsearch/plugins/marvel" ]; then
+      docker exec es /usr/share/elasticsearch/bin/plugin -install elasticsearch/marvel/latest;
+    fi
+  SHELL
 
 end
