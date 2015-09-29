@@ -1,15 +1,19 @@
 ﻿using System.Web.Mvc;
+using WebApplication.LoggerHelpers;
 
 namespace WebApplication
 {
     public class LoggingController : Controller
     {
+        private const int MESSAGES_NUMBER = 1000;
+
         public string Index() {
-            return "Here is the result";
+            return "Hello...";
         }
 
         public string Log4Net()
         {
+            new Log4NetHelper().LogMessages(MESSAGES_NUMBER);
             return "log4net does it's job";
         }
 
@@ -26,22 +30,6 @@ namespace WebApplication
         public string Serilog()
         {
             return "serilog blocks logger does it's job";
-        }
-    }
-
-    public class Log4NetHelper
-    {
-        public Log4NetHelper()
-        {
-
-        }
-
-        public void LogMessages(int count)
-        {
-            for(int i = 0; i<count; i++)
-            {
-
-            }
         }
     }
 }
