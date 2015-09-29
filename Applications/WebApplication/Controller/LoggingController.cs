@@ -5,7 +5,7 @@ namespace WebApplication
 {
     public class LoggingController : Controller
     {
-        private const int MESSAGES_NUMBER = 1000;
+        private const int MESSAGES_NUMBER = 10 * 1000;
 
         public string Index() {
             return "Hello...";
@@ -19,6 +19,7 @@ namespace WebApplication
 
         public string NLog()
         {
+            new NLogHelper().LogMessages(MESSAGES_NUMBER);
             return "nlog does it's job";
         }
 
