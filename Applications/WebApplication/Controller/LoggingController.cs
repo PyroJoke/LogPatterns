@@ -5,7 +5,7 @@ namespace WebApplication
 {
     public class LoggingController : Controller
     {
-        private const int MESSAGES_NUMBER = 10 * 1000;
+        private const int MESSAGES_NUMBER = 1000;
 
         public string Index() {
             return "Hello...";
@@ -31,7 +31,8 @@ namespace WebApplication
 
         public string Serilog()
         {
-            return "serilog blocks logger does it's job";
+            new SerilogHelper(HttpContext.Request.PhysicalApplicationPath).LogMessages(MESSAGES_NUMBER);
+            return "serilog does it's job";
         }
     }
 }
