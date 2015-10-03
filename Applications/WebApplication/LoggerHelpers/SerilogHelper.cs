@@ -19,7 +19,7 @@ namespace WebApplication.LoggerHelpers
         {
             for (int i = 0; i < count; i++)
             {
-                Log.Logger.Information("Serilog writes informational messages");
+                Log.Logger.Information("Serilog writes informational messages {count}", i);
             }
         }
     }

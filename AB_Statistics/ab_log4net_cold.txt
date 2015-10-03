@@ -1,0 +1,42 @@
+This is ApacheBench, Version 2.3 <$Revision: 1604373 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 10.0.2.2 (be patient)
+
+
+Server Software:        Microsoft-IIS/10.0
+Server Hostname:        10.0.2.2
+Server Port:            80
+
+Document Path:          /logging/log4net
+Document Length:        21 bytes
+
+Concurrency Level:      100
+Time taken for tests:   117.731 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      360000 bytes
+HTML transferred:       21000 bytes
+Requests per second:    8.49 [#/sec] (mean)
+Time per request:       11773.122 [ms] (mean)
+Time per request:       117.731 [ms] (mean, across all concurrent requests)
+Transfer rate:          2.99 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    5  12.3      1      52
+Processing:   412 11213 2072.4  11759   12560
+Waiting:      412 11213 2072.5  11759   12559
+Total:        419 11218 2064.2  11760   12560
+
+Percentage of the requests served within a certain time (ms)
+  50%  11760
+  66%  11858
+  75%  11912
+  80%  11962
+  90%  12126
+  95%  12277
+  98%  12387
+  99%  12441
+ 100%  12560 (longest request)

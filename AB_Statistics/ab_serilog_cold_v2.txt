@@ -1,0 +1,42 @@
+This is ApacheBench, Version 2.3 <$Revision: 1604373 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 10.0.2.2 (be patient)
+
+
+Server Software:        Microsoft-IIS/10.0
+Server Hostname:        10.0.2.2
+Server Port:            80
+
+Document Path:          /logging/serilog
+Document Length:        21 bytes
+
+Concurrency Level:      100
+Time taken for tests:   1.203 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      360000 bytes
+HTML transferred:       21000 bytes
+Requests per second:    831.13 [#/sec] (mean)
+Time per request:       120.319 [ms] (mean)
+Time per request:       1.203 [ms] (mean, across all concurrent requests)
+Transfer rate:          292.19 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    6  10.6      2      45
+Processing:    50  111  82.7     85     391
+Waiting:       50  110  82.0     85     388
+Total:         56  117  92.6     87     435
+
+Percentage of the requests served within a certain time (ms)
+  50%     87
+  66%     92
+  75%     96
+  80%     98
+  90%    337
+  95%    391
+  98%    430
+  99%    432
+ 100%    435 (longest request)
