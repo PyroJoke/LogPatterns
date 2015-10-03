@@ -23,9 +23,10 @@ namespace WebApplication
             return "nlog does it's job";
         }
 
-        public string ApplicationBlocksLogger()
+        public string SystemDiagnosticsTrace()
         {
-            return "application blocks logger does it's job";
+            new TraceListenerHelper().LogMessages(MESSAGES_NUMBER);
+            return "system diagnositcs trace does it's job";
         }
 
         public string Serilog()
