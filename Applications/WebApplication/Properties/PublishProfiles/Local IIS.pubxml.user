@@ -25,7 +25,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/29/2015 17:13:25</publishTime>
     </File>
     <File Include="bin/NLog.config">
-      <publishTime>10/03/2015 16:34:41</publishTime>
+      <publishTime>10/05/2015 12:28:55</publishTime>
     </File>
     <File Include="bin/NLog.dll">
       <publishTime>09/29/2015 18:41:42</publishTime>
@@ -91,7 +91,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/29/2015 17:13:27</publishTime>
     </File>
     <File Include="bin/WebApplication.dll">
-      <publishTime>10/05/2015 11:19:59</publishTime>
+      <publishTime>10/05/2015 13:59:18</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>09/29/2015 17:16:16</publishTime>
@@ -100,7 +100,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2015 15:56:33</publishTime>
     </File>
     <File Include="NLog.config">
-      <publishTime>10/03/2015 16:34:41</publishTime>
+      <publishTime>10/05/2015 12:28:55</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>10/03/2015 16:15:00</publishTime>

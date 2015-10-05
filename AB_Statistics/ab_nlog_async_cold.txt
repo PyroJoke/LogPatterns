@@ -13,30 +13,30 @@ Document Path:          /logging/nlog
 Document Length:        18 bytes
 
 Concurrency Level:      100
-Time taken for tests:   195.392 seconds
+Time taken for tests:   18.868 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      357000 bytes
 HTML transferred:       18000 bytes
-Requests per second:    5.12 [#/sec] (mean)
-Time per request:       19539.180 [ms] (mean)
-Time per request:       195.392 [ms] (mean, across all concurrent requests)
-Transfer rate:          1.78 [Kbytes/sec] received
+Requests per second:    53.00 [#/sec] (mean)
+Time per request:       1886.841 [ms] (mean)
+Time per request:       18.868 [ms] (mean, across all concurrent requests)
+Transfer rate:          18.48 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1    5  11.7      1      48
-Processing:   737 18595 3314.6  19484   20271
-Waiting:      726 18595 3314.7  19484   20271
-Total:        749 18600 3306.0  19486   20272
+Connect:        1    4   9.6      1      41
+Processing:  1164 1793 182.8   1772    2904
+Waiting:     1164 1793 182.8   1772    2904
+Total:       1186 1797 188.5   1774    2946
 
 Percentage of the requests served within a certain time (ms)
-  50%  19486
-  66%  19594
-  75%  19645
-  80%  19683
-  90%  19787
-  95%  19895
-  98%  19982
-  99%  20061
- 100%  20272 (longest request)
+  50%   1774
+  66%   1795
+  75%   1811
+  80%   1819
+  90%   1851
+  95%   2043
+  98%   2599
+  99%   2760
+ 100%   2946 (longest request)

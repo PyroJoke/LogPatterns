@@ -1,0 +1,42 @@
+This is ApacheBench, Version 2.3 <$Revision: 1604373 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 10.0.2.2 (be patient)
+
+
+Server Software:        Microsoft-IIS/10.0
+Server Hostname:        10.0.2.2
+Server Port:            80
+
+Document Path:          /logging/systemdiagnosticstrace
+Document Length:        38 bytes
+
+Concurrency Level:      100
+Time taken for tests:   6.559 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      377000 bytes
+HTML transferred:       38000 bytes
+Requests per second:    152.47 [#/sec] (mean)
+Time per request:       655.877 [ms] (mean)
+Time per request:       6.559 [ms] (mean, across all concurrent requests)
+Transfer rate:          56.13 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    4  10.6      1      43
+Processing:    23  619 113.9    647     704
+Waiting:       23  619 114.0    647     704
+Total:         36  623 106.2    649     706
+
+Percentage of the requests served within a certain time (ms)
+  50%    649
+  66%    654
+  75%    659
+  80%    661
+  90%    670
+  95%    679
+  98%    688
+  99%    693
+ 100%    706 (longest request)

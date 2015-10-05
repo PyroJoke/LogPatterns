@@ -13,30 +13,30 @@ Document Path:          /logging/log4net
 Document Length:        21 bytes
 
 Concurrency Level:      100
-Time taken for tests:   117.731 seconds
+Time taken for tests:   7.137 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      360000 bytes
 HTML transferred:       21000 bytes
-Requests per second:    8.49 [#/sec] (mean)
-Time per request:       11773.122 [ms] (mean)
-Time per request:       117.731 [ms] (mean, across all concurrent requests)
-Transfer rate:          2.99 [Kbytes/sec] received
+Requests per second:    140.12 [#/sec] (mean)
+Time per request:       713.661 [ms] (mean)
+Time per request:       7.137 [ms] (mean, across all concurrent requests)
+Transfer rate:          49.26 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1    5  12.3      1      52
-Processing:   412 11213 2072.4  11759   12560
-Waiting:      412 11213 2072.5  11759   12559
-Total:        419 11218 2064.2  11760   12560
+Connect:        0    3   8.0      1      39
+Processing:   349  678  65.1    676    1033
+Waiting:      348  678  65.1    676    1032
+Total:        364  682  68.1    677    1072
 
 Percentage of the requests served within a certain time (ms)
-  50%  11760
-  66%  11858
-  75%  11912
-  80%  11962
-  90%  12126
-  95%  12277
-  98%  12387
-  99%  12441
- 100%  12560 (longest request)
+  50%    677
+  66%    684
+  75%    689
+  80%    693
+  90%    708
+  95%    726
+  98%    933
+  99%    997
+ 100%   1072 (longest request)

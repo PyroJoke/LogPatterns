@@ -11,6 +11,12 @@ namespace WebApplication
             return "Hello...";
         }
 
+        public string Loop()
+        {
+            for (int i = 0; i < MESSAGES_NUMBER; i++) { }
+            return "Loop done";
+        }
+
         public string Log4Net()
         {
             new Log4NetHelper().LogMessages(MESSAGES_NUMBER);

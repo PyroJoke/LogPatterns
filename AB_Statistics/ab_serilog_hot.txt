@@ -13,30 +13,30 @@ Document Path:          /logging/serilog
 Document Length:        21 bytes
 
 Concurrency Level:      100
-Time taken for tests:   0.861 seconds
+Time taken for tests:   15.191 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      360000 bytes
 HTML transferred:       21000 bytes
-Requests per second:    1161.29 [#/sec] (mean)
-Time per request:       86.111 [ms] (mean)
-Time per request:       0.861 [ms] (mean, across all concurrent requests)
-Transfer rate:          408.27 [Kbytes/sec] received
+Requests per second:    65.83 [#/sec] (mean)
+Time per request:       1519.130 [ms] (mean)
+Time per request:       15.191 [ms] (mean, across all concurrent requests)
+Transfer rate:          23.14 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1    5   6.9      2      32
-Processing:    49   77  14.3     75     149
-Waiting:       48   76  14.0     74     148
-Total:         53   82  19.3     77     181
+Connect:        0    5  12.6      1      49
+Processing:    24 1443 262.7   1505    1656
+Waiting:       14 1442 262.8   1505    1656
+Total:         47 1448 253.0   1506    1657
 
 Percentage of the requests served within a certain time (ms)
-  50%     77
-  66%     81
-  75%     83
-  80%     84
-  90%     91
-  95%    133
-  98%    161
-  99%    162
- 100%    181 (longest request)
+  50%   1506
+  66%   1521
+  75%   1530
+  80%   1536
+  90%   1567
+  95%   1594
+  98%   1611
+  99%   1618
+ 100%   1657 (longest request)
