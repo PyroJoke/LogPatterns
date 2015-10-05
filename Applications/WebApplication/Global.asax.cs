@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Serilog;
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace WebApplication
 {
@@ -14,6 +11,10 @@ namespace WebApplication
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File(string.Format("{0}\\logs\\{1}", HttpRuntime.AppDomainAppPath, "serilog.log"))
+                .CreateLogger();
+
             RouteTable.Routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

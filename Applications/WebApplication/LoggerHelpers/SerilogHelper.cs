@@ -4,15 +4,8 @@ namespace WebApplication.LoggerHelpers
 {
     public class SerilogHelper : ILoggerHelper
     {
-        private readonly ILogger _log;
-
-        public SerilogHelper(string basePath)
-        {
-            _log = new LoggerConfiguration()
-                .WriteTo.File(string.Format("{0}\\logs\\{1}", basePath, "serilog.log"))
-                .CreateLogger();
-
-            Log.Logger = _log;
+        public SerilogHelper()
+        { 
         }
 
         public void LogMessages(int count)

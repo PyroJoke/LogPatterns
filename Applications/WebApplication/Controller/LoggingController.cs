@@ -31,7 +31,7 @@ namespace WebApplication
 
         public string Serilog()
         {
-            new SerilogHelper(HttpContext.Request.PhysicalApplicationPath).LogMessages(MESSAGES_NUMBER);
+            new SerilogHelper().LogMessages(MESSAGES_NUMBER);
             return "serilog does it's job";
         }
     }
