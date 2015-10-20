@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace AggregatorsDemo.Controllers
@@ -11,6 +9,11 @@ namespace AggregatorsDemo.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public void Error()
+        {
+            throw new NotImplementedException("This methods is not implemented yet");
         }
     }
 }
