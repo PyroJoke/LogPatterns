@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AggregatorsDemo.Models;
+using Serilog;
 
 namespace AggregatorsDemo.Controllers
 {
@@ -236,6 +237,7 @@ namespace AggregatorsDemo.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
+                Log.Logger.Information("Password successfully changed for user id {userId}", User.Identity.GetUserId());
                 return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);

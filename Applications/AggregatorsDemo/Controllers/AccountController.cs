@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AggregatorsDemo.Models;
+using Serilog;
 
 namespace AggregatorsDemo.Controllers
 {
@@ -91,13 +92,17 @@ namespace AggregatorsDemo.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    Log.Logger.Information("Successful login for user email {email}", model.Email);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
+                    Log.Logger.Information("Login is locked out for user email {email}", model.Email);
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
+                    Log.Logger.Information("Login requires verification for user email {email}", model.Email);
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
+                    Log.Logger.Information("Invalid login attemp for email {email}", model.Email);
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
@@ -403,6 +408,7 @@ namespace AggregatorsDemo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            Log.Logger.Information("User {email} signed off", User.Identity.Name);
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
