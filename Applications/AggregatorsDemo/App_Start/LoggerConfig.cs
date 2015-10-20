@@ -8,17 +8,23 @@ namespace AggregatorsDemo
     {
         public static void ConfigureLogger()
         {
-            var documentStore = new DocumentStore
-            {
-                Url = ConfigurationManager.AppSettings["raven:documentStore:url"],
-                DefaultDatabase = ConfigurationManager.AppSettings["raven:documentStore:defaultDatabase"]
-            };
-            documentStore.Initialize();
+            var loggerConfig = new LoggerConfiguration()
+                .ReadFrom.AppSettings();
 
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.AppSettings()
-                .WriteTo.RavenDB(documentStore)
-                .CreateLogger();
+            string ravenDocumentStoreUrl = ConfigurationManager.AppSettings["raven:documentStore:url"];
+            if (!string.IsNullOrEmpty(ravenDocumentStoreUrl))
+            {
+                var documentStore = new DocumentStore
+                {
+                    Url = ravenDocumentStoreUrl,
+                    DefaultDatabase = ConfigurationManager.AppSettings["raven:documentStore:defaultDatabase"]
+                };
+                documentStore.Initialize();
+
+                loggerConfig.WriteTo.RavenDB(documentStore);
+            }
+
+            Log.Logger = loggerConfig.CreateLogger();
         }
     }
 }
