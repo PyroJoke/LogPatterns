@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Configuration;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Raven.Client.Document;
 using Serilog;
 
 namespace AggregatorsDemo
@@ -12,8 +14,16 @@ namespace AggregatorsDemo
     {
         protected void Application_Start()
         {
+            var documentStore = new DocumentStore
+            {
+                Url = ConfigurationManager.AppSettings["raven:documentStore:url"],
+                DefaultDatabase = ConfigurationManager.AppSettings["raven:documentStore:defaultDatabase"]
+            };
+            documentStore.Initialize();
+
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.AppSettings()
+                .WriteTo.RavenDB(documentStore)
                 .CreateLogger();
 
             AreaRegistration.RegisterAllAreas();
